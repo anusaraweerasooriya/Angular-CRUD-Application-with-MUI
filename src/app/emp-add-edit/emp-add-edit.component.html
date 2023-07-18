@@ -1,1 +1,77 @@
-<p>emp-add-edit works!</p>
+<div mat-dialog-title>Employee Form</div>
+<div mat-dialog-content class="content">
+
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput type="text" placeholder="Ex. John">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text" placeholder="Ex. Hamilton">
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" placeholder="Ex. john77@gmail.com">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Date of Birth</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate placeholder="Start date">
+              <input matEndDate placeholder="End date">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+          
+    </div>
+
+    <div class="row">
+        <mat-radio-group aria-label="Select an option">
+            <mat-label><b>Gender</b></mat-label>
+            <mat-radio-button value="male">Male</mat-radio-button>
+            <mat-radio-button value="female">Female</mat-radio-button>
+            <mat-radio-button value="others">Others</mat-radio-button>
+          </mat-radio-group>          
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Education</mat-label>
+            <mat-select>
+                <mat-option 
+                    *ngFor="let val of education"
+                    [value]="val"
+                >
+                    {{ val }}
+                </mat-option>
+              
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Company</mat-label>
+            <input matInput type="text" placeholder="Ex. Google">
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="outline" type="number">
+            <mat-label>Experience</mat-label>
+            <input matInput type="text" placeholder="Ex. 4">
+        </mat-form-field>
+        <mat-form-field appearance="outline" type="number">
+            <mat-label>Package</mat-label>
+            <input matInput type="text" placeholder="Ex. 12">
+            <mat-hint>In Dollars</mat-hint>
+        </mat-form-field>
+    </div>
+
+</div>
+<div mat-dialog-actions class="actions">
+    <button mat-raised-button>Cancel</button>
+    <button mat-raised-button color="primary">Save</button>
+</div>
